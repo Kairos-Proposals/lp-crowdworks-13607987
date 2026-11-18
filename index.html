@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | Shopify継続改修パートナー for 株式会社ALATAMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F5EE;
+    --bg-alt:#E9EEE1;
+    --dark:#15302A;
+    --dark2:#1D3F37;
+    --teal:#3F6E66;
+    --gold:#C99A3E;
+    --coral:#C85A3E;
+    --ink:#1B231E;
+    --sub:#51615A;
+    --line:#D6DECB;
+    --mono:'JetBrains Mono',monospace;
+    --sans:'Noto Sans JP',sans-serif;
+    --head:'Zen Kaku Gothic New',sans-serif;
+    --headen:'Space Grotesk',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.85;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--head);line-height:1.4;letter-spacing:.01em;}
+  a{text-decoration:none;color:inherit;}
+  img{display:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  .label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .label::before{
+    content:"";
+    width:18px;height:1px;background:var(--gold);
+    display:inline-block;
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .logo{
+    font-family:var(--headen);
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:.03em;
+    color:var(--dark);
+  }
+  .logo span{color:var(--gold);}
+  header .tagline{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--sub);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:
+      repeating-linear-gradient(0deg, rgba(21,48,42,0.05) 0px, rgba(21,48,42,0.05) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(21,48,42,0.05) 0px, rgba(21,48,42,0.05) 1px, transparent 1px, transparent 64px),
+      var(--bg);
+    padding:90px 0 100px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(30px,4.2vw,50px);
+    font-weight:900;
+    color:var(--dark);
+    margin:22px 0 24px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--coral);
+    position:relative;
+  }
+  .hero p.lead{
+    font-size:15.5px;
+    color:var(--sub);
+    max-width:46ch;
+    margin-bottom:30px;
+  }
+  .hero .proposal-tag{
+    font-family:var(--mono);
+    font-size:13px;
+    background:var(--dark);
+    color:#CFE4DB;
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    margin-bottom:20px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--dark);
+    color:#fff;
+    padding:15px 28px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:14.5px;
+    transition:.25s;
+    border:1px solid var(--dark);
+  }
+  .btn:hover{background:transparent;color:var(--dark);}
+  .btn.gold{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+  .btn.gold:hover{background:transparent;color:var(--gold);}
+
+  /* code window */
+  .code-window{
+    background:var(--dark2);
+    border-radius:12px;
+    box-shadow:0 30px 60px -20px rgba(21,48,42,0.5);
+    overflow:hidden;
+    transform:rotate(1.2deg);
+  }
+  .code-window .bar{
+    background:#112620;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+  .bar .dot{width:10px;height:10px;border-radius:50%;}
+  .bar .dot:nth-child(1){background:#C85A3E;}
+  .bar .dot:nth-child(2){background:#C99A3E;}
+  .bar .dot:nth-child(3){background:#3F6E66;}
+  .bar .filename{
+    margin-left:10px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:#8FA89E;
+  }
+  .code-window pre{
+    padding:24px 22px;
+    font-family:var(--mono);
+    font-size:12.6px;
+    line-height:2;
+    color:#A9C9BE;
+    overflow-x:auto;
+  }
+  .code-window .kw{color:var(--gold);}
+  .code-window .str{color:#E3B07A;}
+  .code-window .tag{color:#7FB8AA;}
+  .code-window .cm{color:#5E7C73;}
+
+  /* ===== SECTION BASE ===== */
+  section{padding:90px 0;}
+  .section-head{
+    margin-bottom:46px;
+    max-width:680px;
+  }
+  .section-head h2{
+    font-size:clamp(24px,3vw,34px);
+    color:var(--dark);
+    margin-top:14px;
+    font-weight:900;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{background:var(--bg-alt);}
+  .understand .grid{
+    display:grid;
+    grid-template-columns:1.3fr .9fr;
+    gap:56px;
+  }
+  .understand p{
+    color:var(--sub);
+    font-size:15.5px;
+    margin-bottom:18px;
+  }
+  .understand p strong{color:var(--dark);}
+  .pillbox{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+  }
+  .pill{
+    font-family:var(--mono);
+    font-size:12.5px;
+    background:#fff;
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:20px;
+    color:var(--dark);
+  }
+  .sideboard{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px;
+  }
+  .sideboard .sku{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--teal);
+    margin-bottom:10px;
+    letter-spacing:.08em;
+  }
+  .sideboard h3{
+    font-size:17px;
+    color:var(--dark);
+    margin-bottom:12px;
+  }
+  .sideboard ul{list-style:none;}
+  .sideboard li{
+    padding:10px 0;
+    border-top:1px dashed var(--line);
+    font-size:14px;
+    color:var(--sub);
+    display:flex;
+    gap:10px;
+  }
+  .sideboard li:first-child{border-top:none;}
+  .sideboard li::before{content:"—";color:var(--gold);font-weight:700;}
+
+  /* ===== VALUE CARDS ===== */
+  .values .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px 26px;
+    position:relative;
+    transition:.25s;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px -16px rgba(21,48,42,0.25);
+    border-color:var(--teal);
+  }
+  .card .num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gold);
+    margin-bottom:16px;
+    display:block;
+  }
+  .card h3{
+    font-size:17.5px;
+    color:var(--dark);
+    margin-bottom:12px;
+  }
+  .card p{
+    font-size:14px;
+    color:var(--sub);
+  }
+  .card.wide{grid-column:span 1;}
+
+  /* ===== PROCESS ===== */
+  .process{background:var(--dark);color:#E7EDE4;}
+  .process .section-head h2{color:#fff;}
+  .process .label{color:#7FB8AA;}
+  .process .label::before{background:var(--gold);}
+  .timeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+    position:relative;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    top:20px;
+    left:0;right:0;
+    height:1px;
+    background:rgba(255,255,255,0.15);
+  }
+  .step{position:relative;padding-top:50px;}
+  .step .dot{
+    width:40px;height:40px;
+    border-radius:50%;
+    background:var(--dark2);
+    border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--gold);
+    position:absolute;
+    top:0;left:0;
+  }
+  .step h3{
+    font-size:15.5px;
+    margin-bottom:10px;
+    color:#fff;
+  }
+  .step p{
+    font-size:13px;
+    color:#B9C6BF;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:
+      radial-gradient(circle at 20% 20%, rgba(201,154,62,0.12), transparent 50%),
+      var(--bg);
+    text-align:center;
+    padding:110px 0;
+  }
+  .closing h2{
+    font-size:clamp(26px,4vw,40px);
+    color:var(--dark);
+    margin:18px 0 20px;
+  }
+  .closing p{
+    color:var(--sub);
+    max-width:50ch;
+    margin:0 auto 36px;
+    font-size:15.5px;
+  }
+  .closing .cta-row{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .closing .meta{
+    margin-top:40px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--sub);
+  }
+
+  footer{
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    text-align:center;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--sub);
+  }
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .code-window{transform:none;}
+    .understand .grid{grid-template-columns:1fr;}
+    .values .grid{grid-template-columns:repeat(2,1fr);}
+    .timeline{grid-template-columns:1fr 1fr;row-gap:40px;}
+    .timeline::before{display:none;}
+  }
+  @media (max-width:560px){
+    .values .grid{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:1fr;}
+    header .tagline{display:none;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Kairos<span>.</span></div>
+    <div class="tagline">Web制作・システム開発 / Development Proposal</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="proposal-tag">PROPOSAL FOR 株式会社ALATAMA 様</div>
+      <span class="label">Shopify Engineering Partner</span>
+      <h1>仕様は変わる。<br>売り場は、<em>止めない。</em></h1>
+      <p class="lead">
+        トップページの微調整も、Liquidの奥に潜る改修も。
+        Kairosは、動き続けるShopifyショップに合わせて、
+        淡々と・継続的に手を入れ続けるエンジニアリングパートナーとしてご提案します。
+      </p>
+      <a href="#value" class="btn">ご提案内容を見る ↓</a>
+    </div>
+    <div class="code-window">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="filename">theme.liquid — ALATAMA shop</span>
+      </div>
+      <pre>{<span class="tag">% if</span> product.available <span class="tag">%</span>}
+  &lt;<span class="tag">div</span> class=<span class="str">"stock-badge"</span>&gt;
+    <span class="kw">在庫あり</span>
+  &lt;/<span class="tag">div</span>&gt;
+{<span class="tag">% else</span> <span class="tag">%</span>}
+  &lt;<span class="tag">div</span> class=<span class="str">"stock-badge sold-out"</span>&gt;
+    <span class="kw">SOLD OUT</span>
+  &lt;/<span class="tag">div</span>&gt;
+{<span class="tag">% endif</span> <span class="tag">%</span>}
+
+<span class="cm">/* mobile fix: 2024.xx */</span>
+<span class="kw">@media</span> (max-width: 480px){
+  .stock-badge{ font-size: 12px; }
+}</pre>
+    </div>
+  </div>
+</section>
+
+<section class="understand">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="label">Understanding</span>
+        <h2 style="margin-top:14px;color:var(--dark);font-size:28px;">
+          "ちょっとした改修"ほど、<br>信頼できる相手が必要になる
+        </h2>
+        <p>
+          複数のShopifyショップを運営・支援されているALATAMA様にとって、
+          日々発生するのは「大きなリニューアル」ではなく、
+          <strong>表示崩れ・導線の違和感・アプリとの相性調整</strong>といった、
+          小さいけれど売上に直結する改修の積み重ねだと理解しています。
+        </p>
+        <p>
+          テーマ設定だけで済む調整もあれば、Liquid・CSS・JavaScriptの
+          コードに踏み込まないと直せない不具合もある。
+          その切り分けを自分で判断し、<strong>説明しながら対応できる</strong>
+          エンジニアが求められているはずです。
+        </p>
+        <p>
+          さらに今回は単発ではなく、<strong>継続的な改修と新規構築の可能性</strong>
+          まで見据えたご相談。だからこそKairosは、都度の対応品質だけでなく
+          「長く付き合える体制」としてご提案します。
+        </p>
+        <div class="pillbox">
+          <span class="pill">Liquid</span>
+          <span class="pill">HTML / CSS / JS</span>
+          <span class="pill">Shopify Apps連携</span>
+          <span class="pill">レスポンシブ修正</span>
+          <span class="pill">継続保守</span>
+        </div>
+      </div>
+      <div class="sideboard">
+        <div class="sku">SKU // ALATAMA-SHOPIFY-REQ</div>
+        <h3>今回のご依頼を、こう読み解きました</h3>
+        <ul>
+          <li>複数クライアントショップの横断的な改修対応</li>
+          <li>テーマ調整〜コード編集まで幅の広さが必要</li>
+          <li>改修内容ごとの見積もり提示が前提</li>
+          <li>スマホ表示の品質担保が重視されている</li>
+          <li>将来的な新規Shopify構築も視野に</li>
+          <li>何より「続けられる関係」が求められている</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="value">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">What Kairos Offers</span>
+      <h2>Kairosが棚卸しできる、5つの価値</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Liquid／HTML／CSS／JS フルスタック対応</h3>
+        <p>テーマエディタで完結する軽微な変更から、Liquidのロジックに踏み込む改修まで、内容に応じて最適な手段を選んで対応します。</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>モバイル崩れのハンティング</h3>
+        <p>スマートフォンでの表示崩れ・タップ導線の不具合を実機ベースで確認し、見落とされがちな"売上を逃す1ピクセル"まで直します。</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>アプリ連携・既存テーマとの整合調整</h3>
+        <p>新しいアプリ導入時に起こりがちな、既存テーマとの表示崩れ・競合を調整し、導入後も崩れないショップを保ちます。</p>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3>要件整理と見える化された見積もり</h3>
+        <p>ご要望を伺った上で「どこまでテーマ設定で可能か／どこからコード対応が必要か」を整理し、納得感のある見積もりを提示します。</p>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3>継続依頼・新規構築まで伸びる体制</h3>
+        <p>単発対応で終わらせず、継続的な改修依頼や将来的な新規Shopify構築のご相談にも対応できる体制で伴走します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">How We Work</span>
+      <h2>進め方のイメージ</h2>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="dot">01</div>
+        <h3>ヒアリング</h3>
+        <p>対象ショップと改修内容、優先度を確認します。</p>
+      </div>
+      <div class="step">
+        <div class="dot">02</div>
+        <h3>お見積もり</h3>
+        <p>対応範囲を整理し、作業内容と金額をご提示します。</p>
+      </div>
+      <div class="step">
+        <div class="dot">03</div>
+        <h3>実装</h3>
+        <p>Liquid／CSS／JSでの改修を実施、進捗を共有します。</p>
+      </div>
+      <div class="step">
+        <div class="dot">04</div>
+        <h3>確認・調整</h3>
+        <p>表示・動作をチェックし、フィードバックを反映します。</p>
+      </div>
+      <div class="step">
+        <div class="dot">05</div>
+        <h3>継続運用へ</h3>
+        <p>以降の改修・新規構築のご相談にも継続対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <span class="label">Next Action</span>
+    <h2>まずは、気になる1画面から。</h2>
+    <p>
+      大掛かりなリニューアルでなくて構いません。
+      「あのページのこの部分」から、Kairosとの改修をはじめてみませんか。
+      応募要項に沿って、実績と対応範囲をご案内いたします。
+    </p>
+    <div class="cta-row">
+      <a href="#" class="btn gold">Kairosに相談・応募する</a>
+      <a href="#" class="btn" style="background:transparent;border-color:var(--dark);color:var(--dark);">実績・対応範囲を見る</a>
+    </div>
+    <div class="meta">// ready to commit — Kairos Dev Team</div>
+  </div>
+</section>
+
+<footer>
+  © Kairos — Web制作・システム開発チーム / Proposal for 株式会社ALATAMA
+</footer>
+
+</body>
+</html>
